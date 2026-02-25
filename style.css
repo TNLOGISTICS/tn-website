@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #222;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* HEADER */
+header {
+    background-color: #0b1f3a;
+    color: #ffffff;
+    padding: 18px 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+    padding: 70px 0;
+    text-align: center;
+    background-color: #f4f6f9;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #0b1f3a;
+}
+
+.hero p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* SECTION */
+.section {
+    padding: 60px 0;
+}
+
+.section h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    border-left: 4px solid #0b1f3a;
+    padding-left: 10px;
+}
+
+/* GRID */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    border: 1px solid #e1e1e1;
+    padding: 20px;
+    background-color: #ffffff;
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* CONTACT BOX */
+.contact-box {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border: 1px solid #e1e1e1;
+}
+
+/* NETWORK SECTION */
+.network-wrap {
+    border: 1px solid #e1e1e1;
+    background: #ffffff;
+    padding: 24px;
+}
+
+.network-desc {
+    margin-bottom: 18px;
+    color: #555;
+    font-size: 14px;
+}
+
+.map-box {
+    position: relative;
+    height: 260px;
+    border: 1px solid #e8e8e8;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+/* Floating Contact Button */
+.floating-cta {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999;
+}
+
+.floating-cta a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: #0b1f3a;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.floating-cta a:hover {
+    opacity: 0.9;
+}
+
+/* FOOTER */
+footer {
+    background-color: #0b1f3a;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
