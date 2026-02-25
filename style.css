@@ -160,3 +160,15 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+.hero {
+    padding: 90px 0;
+    text-align: center;
+    background-color: #f4f6f9;
+    background-image: url("world-map.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-blend-mode: multiply;
+    opacity: 0.98;
+}
