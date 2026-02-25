@@ -41,7 +41,7 @@ h3{font-size:18px; color:var(--navy); margin-bottom:10px}
 header{
   background: var(--navy);
   color:#fff;
-  padding: 14px 0;
+  padding: 20px 0;   /* ✅ 14px → 20px */
 }
 header .container{
   display:flex;
@@ -50,7 +50,7 @@ header .container{
   gap:14px;
 }
 header h1{
-  font-size:18px;
+  font-size: 20px;   /* ✅ 18px → 20px */
   letter-spacing:.2px;
 }
 nav{
