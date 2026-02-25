@@ -1,174 +1,167 @@
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-    color: #222;
-    line-height: 1.6;
+/* ===== Base ===== */
+:root{
+  --navy:#0b1f3a;
+  --bg:#ffffff;
+  --soft:#f4f6f9;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --line:#e5e7eb;
 }
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
 }
 
-/* HEADER */
-header {
-    background-color: #0b1f3a;
-    color: #ffffff;
-    padding: 18px 0;
+a{color:inherit}
+p{margin:0 0 12px}
+ul{margin:0; padding-left:18px}
+li{margin:6px 0}
+h1,h2,h3{margin:0}
+h3{font-size:18px; color:var(--navy); margin-bottom:10px}
+
+/* ===== Layout ===== */
+.container{
+  width: 92%;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.section{
+  padding: 26px 0;          /* ✅ 기존 60px → 26px로 축소 */
+  border-top: 1px solid var(--line);
+}
+.section:first-of-type{border-top:none}
+
+/* ===== Header ===== */
+header{
+  background: var(--navy);
+  color:#fff;
+  padding: 14px 0;
+}
+header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+header h1{
+  font-size:18px;
+  letter-spacing:.2px;
+}
+nav{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:13px;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  padding:7px 10px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.18);
+}
+nav a:hover{
+  background: rgba(255,255,255,.08);
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
+/* ===== Hero ===== */
+.hero{
+  background: var(--soft);
+  padding: 34px 0 28px;     /* ✅ 과한 여백 축소 */
+  text-align:left;          /* ✅ 포워더 톤: 좌측 정렬이 더 ‘기업’ 느낌 */
+}
+.hero .container{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.hero h2{
+  color: var(--navy);
+  font-size: 26px;
+  line-height: 1.25;
+}
+.hero p{
+  color: var(--muted);
+  max-width: 78ch;
+  margin:0;
 }
 
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    margin-left: 15px;
-    font-size: 14px;
+/* ===== Cards / Grids ===== */
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.card{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px;
+  background:#fff;
+}
+.card h4{
+  margin:0 0 6px;
+  font-size:14px;
+  color:var(--navy);
+}
+.card p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
 }
 
-nav a:hover {
-    text-decoration: underline;
+/* ===== Trust block (Why TN) ===== */
+.trust{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+.trust .pill{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px;
+  background: #fff;
+}
+.trust .pill b{
+  display:block;
+  margin-bottom:4px;
+  color:var(--navy);
+  font-size:13px;
+}
+.trust .pill span{
+  color:var(--muted);
+  font-size:13px;
 }
 
-/* HERO */
-.hero {
-    padding: 70px 0;
-    text-align: center;
-    background-color: #f4f6f9;
+/* ===== Contact box ===== */
+.contact-box{
+  background: #fafafa;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px;
+}
+.contact-box p{margin:8px 0}
+.contact-box strong{color:var(--navy)}
+
+/* ===== Footer ===== */
+footer{
+  background: var(--navy);
+  color:#fff;
+  text-align:center;
+  padding: 14px 0;
+  font-size: 12px;
+  margin-top: 16px;
 }
 
-.hero h1 {
-    font-size: 32px;
-    margin-bottom: 15px;
-    color: #0b1f3a;
-}
-
-.hero p {
-    font-size: 16px;
-    color: #555;
-}
-
-/* SECTION */
-.section {
-    padding: 60px 0;
-}
-
-.section h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    border-left: 4px solid #0b1f3a;
-    padding-left: 10px;
-}
-
-/* GRID */
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-/* CARD */
-.card {
-    border: 1px solid #e1e1e1;
-    padding: 20px;
-    background-color: #ffffff;
-    transition: 0.2s ease;
-}
-
-.card:hover {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* CONTACT BOX */
-.contact-box {
-    background-color: #f9f9f9;
-    padding: 30px;
-    border: 1px solid #e1e1e1;
-}
-
-/* NETWORK SECTION */
-.network-wrap {
-    border: 1px solid #e1e1e1;
-    background: #ffffff;
-    padding: 24px;
-}
-
-.network-desc {
-    margin-bottom: 18px;
-    color: #555;
-    font-size: 14px;
-}
-
-.map-box {
-    position: relative;
-    height: 260px;
-    border: 1px solid #e8e8e8;
-    background: #fafafa;
-    overflow: hidden;
-}
-
-/* Floating Contact Button */
-.floating-cta {
-    position: fixed;
-    right: 18px;
-    bottom: 18px;
-    z-index: 999;
-}
-
-.floating-cta a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 44px;
-    padding: 0 16px;
-    border-radius: 999px;
-    background: #0b1f3a;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
-
-.floating-cta a:hover {
-    opacity: 0.9;
-}
-
-/* FOOTER */
-footer {
-    background-color: #0b1f3a;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 13px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 860px) {
-    .grid-3 {
-        grid-template-columns: 1fr;
-    }
-}
-
-.hero {
-    padding: 90px 0;
-    text-align: center;
-    background-color: #f4f6f9;
-    background-image: url("world-map.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 70%;
-    background-blend-mode: multiply;
-    opacity: 0.98;
+/* ===== Mobile ===== */
+@media (max-width: 860px){
+  .grid-3{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr}
+  header .container{flex-direction:column; align-items:flex-start}
 }
