@@ -32,20 +32,16 @@ h3{font-size:18px; color:var(--navy); margin-bottom:10px}
 }
 
 .section{
-  padding: 26px 0;          /* ✅ 기존 60px → 26px로 축소 */
+  padding: 26px 0;
   border-top: 1px solid var(--line);
 }
 .section:first-of-type{border-top:none}
 
-/* ===== Header ===== */
-.hero{
-  background: var(--soft);
-  background-image: url("world-map.svg");
-  background-repeat: no-repeat;
-  background-position: right 12% center;
-  background-size: 62%;
-  padding: 44px 0 34px;  /* 살짝만 여유 */
-  text-align:left;
+/* ===== Header (네이비 복구 핵심) ===== */
+header{
+  background: var(--navy);
+  color:#fff;
+  padding: 20px 0;  /* 원래 느낌으로 조금 두껍게 */
 }
 header .container{
   display:flex;
@@ -54,9 +50,11 @@ header .container{
   gap:14px;
 }
 header h1{
-  font-size: 20px;   /* ✅ 18px → 20px */
+  font-size: 20px;
   letter-spacing:.2px;
 }
+
+/* nav */
 nav{
   display:flex;
   align-items:center;
@@ -74,13 +72,28 @@ nav a:hover{
   background: rgba(255,255,255,.08);
 }
 
-/* ===== Hero ===== */
+/* ===== Hero (이미지 포함 1개만 유지) ===== */
 .hero{
   background: var(--soft);
-  padding: 34px 0 28px;     /* ✅ 과한 여백 축소 */
-  text-align:left;          /* ✅ 포워더 톤: 좌측 정렬이 더 ‘기업’ 느낌 */
+  background-image: url("world-map.svg"); /* 파일명이 다르면 여기만 수정 */
+  background-repeat: no-repeat;
+  background-position: right 12% center;
+  background-size: 62%;
+  padding: 40px 0 30px;
+  text-align:left;
+  position: relative;
+}
+
+/* 지도 너무 진하면 아래 오버레이 켜기(기본은 켜둠) */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(244,246,249,0.88);
 }
 .hero .container{
+  position: relative;
+  z-index: 1;
   display:flex;
   flex-direction:column;
   gap:8px;
@@ -168,4 +181,5 @@ footer{
   .grid-3{grid-template-columns:1fr}
   .trust{grid-template-columns:1fr}
   header .container{flex-direction:column; align-items:flex-start}
+  .hero{background-position: center; background-size: 92%;}
 }
