@@ -1,171 +1,82 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TN Logistics</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TN Logistics Co., Ltd.</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-  <div class="container header-inner">
-    <div class="brand">
-      <div>TN Logistics</div>
-      <div class="badge">Since 2016</div>
+<header>
+    <div class="container header-inner">
+        <div class="logo">TN Logistics Co., Ltd.</div>
+        <nav>
+            <a href="index.html">ENG</a>
+            <a href="ko.html">KOR</a>
+        </nav>
     </div>
-    <div class="nav">
-      <div class="lang">
-        <a href="index.html">ENG</a>
-        <a class="active" href="ko.html">KOR</a>
-      </div>
-    </div>
-  </div>
 </header>
 
-<main class="container">
+<section class="hero">
+    <div class="container">
+        <h1>Global Freight Forwarding Partner</h1>
+        <p>Reliable Ocean & Air Freight Solutions from Korea to the World.</p>
+    </div>
+</section>
 
-  <section class="hero">
-    <div class="hero-grid">
-      <div class="card">
-        <h1>글로벌 포워딩 파트너</h1>
+<section class="section">
+    <div class="container">
+        <h2>About Us</h2>
         <p>
-          TN Logistics는 해상/항공 운송, 수출입 통관, 프로젝트 및 전시 화물 등
-          국제물류 서비스를 제공합니다. 서울 본사와 부산 지사를 기반으로
-          안정적이고 투명한 커뮤니케이션을 지향합니다.
+            TN Logistics Co., Ltd. was established on April 22, 2016.
+            We provide ocean freight, air freight, customs clearance,
+            and project cargo services.
+            With offices in Seoul and Busan, we support global trade
+            with professionalism and operational stability.
         </p>
+    </div>
+</section>
 
-        <div class="cta">
-          <a class="btn primary" href="mailto:TNL8@TNL8.COM">이메일 문의</a>
-          <a class="btn ghost" href="#contact">연락처 보기</a>
+<section class="section">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Ocean Freight</h3>
+                <p>FCL / LCL coordination and documentation support.</p>
+            </div>
+            <div class="card">
+                <h3>Air Freight</h3>
+                <p>Time-sensitive cargo handling and booking support.</p>
+            </div>
+            <div class="card">
+                <h3>Customs Clearance</h3>
+                <p>Import & export declaration and compliance support.</p>
+            </div>
         </div>
-        <div class="small" style="margin-top:10px;">
-          빠른 회신 • 명확한 진행 안내 • 안정적인 운영
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="section-title">
-          <h2>핵심 정보</h2>
-          <span>신뢰 요소</span>
-        </div>
-        <div class="kpis">
-          <div class="kpi">
-            <div class="num">2016</div>
-            <div class="label">설립</div>
-          </div>
-          <div class="kpi">
-            <div class="num">서울 · 부산</div>
-            <div class="label">거점</div>
-          </div>
-          <div class="kpi">
-            <div class="num">해상 + 항공</div>
-            <div class="label">서비스 범위</div>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <section class="section">
-    <div class="section-title">
-      <h2>서비스</h2>
-      <span>국제물류 주요 업무</span>
+<section class="section">
+    <div class="container contact-box">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:TNL8@TNL8.COM">TNL8@TNL8.COM</a></p>
+        <p><strong>Tel:</strong> +82-2-565-6061</p>
+        <br>
+        <p><strong>Head Office</strong><br>
+        8F, Teheran-ro 29-gil 10,<br>
+        Gangnam-gu, Seoul, Republic of Korea</p>
+        <br>
+        <p><strong>Busan Branch</strong><br>
+        89, Haegwan-ro, Jung-gu,<br>
+        Busan, Republic of Korea<br>
+        (Central Building #1104)</p>
     </div>
+</section>
 
-    <div class="grid-3">
-      <div class="card item">
-        <h3>해상 운송</h3>
-        <p>FCL / LCL, 스케줄 조율, 서류 지원.</p>
-      </div>
-      <div class="card item">
-        <h3>항공 운송</h3>
-        <p>긴급/타임크리티컬 화물, 혼재 옵션, 핸들링 지원.</p>
-      </div>
-      <div class="card item">
-        <h3>수출입 통관</h3>
-        <p>신고/서류 검토, 컴플라이언스 지원.</p>
-      </div>
-    </div>
-
-    <div style="height:12px"></div>
-
-    <div class="grid-2">
-      <div class="card item">
-        <h3>프로젝트 화물</h3>
-        <p>대형/중량 화물, 특수 운송 및 작업 조율.</p>
-      </div>
-      <div class="card item">
-        <h3>전시 화물</h3>
-        <p>전시 일정 중심 운영, 현장 대응, 납기 관리.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-title">
-      <h2>진행 프로세스</h2>
-      <span>간단하게, 명확하게</span>
-    </div>
-
-    <div class="grid-3">
-      <div class="card item">
-        <h3>1) 문의</h3>
-        <p>화물 정보와 타겟 스케줄 공유</p>
-      </div>
-      <div class="card item">
-        <h3>2) 부킹</h3>
-        <p>루트 제안 및 부킹 가능 여부 확인</p>
-      </div>
-      <div class="card item">
-        <h3>3) 진행</h3>
-        <p>픽업/서류/마일스톤 업데이트</p>
-      </div>
-    </div>
-
-    <div style="height:12px"></div>
-
-    <div class="card item">
-      <h3>4) 납품</h3>
-      <p>최종 딜리버리 조율 및 사후 지원</p>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="section-title">
-      <h2>연락처</h2>
-      <span>문의 환영</span>
-    </div>
-
-    <div class="grid-2">
-      <div class="card item">
-        <h3>이메일 / 전화</h3>
-        <p><strong>이메일:</strong> <a href="mailto:TNL8@TNL8.COM">TNL8@TNL8.COM</a></p>
-        <p><strong>전화:</strong> 02-565-6061</p>
-        <div class="divider"></div>
-        <p class="small">문의 시 화물 종류/중량/부피/인코텀즈/희망 일정 포함하면 더 빠르게 안내 가능합니다.</p>
-      </div>
-
-      <div class="card item">
-        <h3>오피스</h3>
-        <p><strong>본사</strong><br>
-          서울특별시 강남구 테헤란로29길 10, 8층
-        </p>
-        <div class="divider"></div>
-        <p><strong>부산지사</strong><br>
-          부산광역시 중구 해관로 89<br>
-          중앙빌딩 1104호
-        </p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    © 2016 TN Logistics. All Rights Reserved.
-  </div>
+<footer>
+    © 2016 TN Logistics Co., Ltd. All Rights Reserved.
 </footer>
 
 </body>
