@@ -38,10 +38,14 @@ h3{font-size:18px; color:var(--navy); margin-bottom:10px}
 .section:first-of-type{border-top:none}
 
 /* ===== Header ===== */
-header{
-  background: var(--navy);
-  color:#fff;
-  padding: 20px 0;   /* ✅ 14px → 20px */
+.hero{
+  background: var(--soft);
+  background-image: url("world-map.svg");
+  background-repeat: no-repeat;
+  background-position: right 12% center;
+  background-size: 62%;
+  padding: 44px 0 34px;  /* 살짝만 여유 */
+  text-align:left;
 }
 header .container{
   display:flex;
