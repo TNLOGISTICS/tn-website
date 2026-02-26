@@ -191,8 +191,9 @@ nav a:hover{
   flex-direction:column;
   gap:8px;
 }
+
 .hero h2{
-  color: #1f2937;   /* 진한 그레이 (Tailwind gray-800 톤) */
+  color: #111827;   /* 거의 블랙에 가까운 딥그레이 */
   font-size: 26px;
   line-height: 1.25;
 }
