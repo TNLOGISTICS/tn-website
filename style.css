@@ -199,10 +199,11 @@ nav a:hover{
 }
 
 .hero p{
-  color: var(--muted);
+  color: #4b5563;   /* 기존 muted보다 살짝 진하게 */
   max-width: 78ch;
   margin:0; /* Jin: 문단간 여백 넓지 않게 */
 }
+
 
 /* Optional hero highlight line */
 .hero .tagline{
