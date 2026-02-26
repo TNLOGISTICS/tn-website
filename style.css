@@ -83,15 +83,14 @@ header .container{
   justify-content:space-between;
   gap:14px;
 }
-header h1{
-  font-size: 20px;
-  letter-spacing:.2px;
-}
+
+/* Brand */
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
   text-decoration:none;
+  color:#fff;
 }
 .brand .logo{
   width:28px; height:28px;
@@ -122,11 +121,14 @@ nav a{
 }
 nav a:hover{background: rgba(255,255,255,.08);}
 
+/* Header CTA */
 .nav-cta{
   border:1px solid rgba(255,255,255,.55) !important;
   font-weight: 600;
 }
-.nav-cta:hover{background: rgba(255,255,255,.12) !important;}
+.nav-cta:hover{
+  background: rgba(255,255,255,.12) !important;
+}
 
 /* ===== Buttons ===== */
 .btn{
@@ -178,29 +180,39 @@ nav a:hover{background: rgba(255,255,255,.08);}
   position: relative;
 }
 
+/* background overlay */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
   background: rgba(244,246,249,0.35);
 }
+
 .hero .container{
   position: relative;
   z-index: 1;
+}
+
+/* NEW: text block wrapper (for readability) */
+.hero-content{
   display:flex;
   flex-direction:column;
   gap:8px;
+  max-width: 82ch;
 }
+
 .hero h2{
-  color: #111827; /* 딥그레이: 모바일 가독성 */
+  color: #111827;
   font-size: 26px;
   line-height: 1.25;
 }
+
 .hero p{
   color: #4b5563;
   max-width: 78ch;
   margin:0;
 }
+
 .hero .tagline{
   font-size: 12px;
   color: rgba(11,31,58,.75);
@@ -302,7 +314,7 @@ nav a:hover{background: rgba(255,255,255,.08);}
   font-size: 13px;
 }
 
-/* ===== Contact Tabs (공간 줄이고 촌스러움 제거) ===== */
+/* ===== Contact Tabs ===== */
 .tabs{
   border:1px solid var(--line);
   border-radius: var(--r-2);
@@ -338,7 +350,6 @@ nav a:hover{background: rgba(255,255,255,.08);}
   background: rgba(11,31,58,.04);
 }
 
-/* Contact actions */
 .contact-actions{
   display:flex;
   flex-wrap:wrap;
@@ -367,13 +378,71 @@ footer{
   margin-top: 16px;
 }
 
-/* ===== Mobile ===== */
+/* ===== Mobile (readability fix) ===== */
 @media (max-width: 860px){
+
+  /* Header: keep nav in one line with horizontal scroll */
+  header .container{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  nav{
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding-bottom: 2px;
+  }
+  nav a{
+    white-space: nowrap;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  /* Hero: stronger overlay + text panel */
+  .hero{
+    background-position: center bottom;
+    background-size: 120%;
+    padding: 26px 0 22px;
+  }
+  .hero::after{
+    background: rgba(244,246,249,0.72);
+  }
+  .hero-content{
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(229,231,235,0.8);
+    border-radius: 14px;
+    padding: 14px;
+    max-width: 100%;
+  }
+  .hero h2{
+    font-size: 22px;
+    line-height: 1.22;
+    letter-spacing: -0.2px;
+  }
+  .hero p{
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* CTA: stacked full width */
+  .actions{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .btn{
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  /* Grids */
   .grid-2{grid-template-columns:1fr}
   .grid-3{grid-template-columns:1fr}
   .trust{grid-template-columns:1fr}
   .process{grid-template-columns:1fr}
-  header .container{flex-direction:column; align-items:flex-start}
-  .hero{background-position: center; background-size: 92%;}
+
   .tabs .tab-labels{flex-wrap:wrap;}
 }
