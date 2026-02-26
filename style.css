@@ -7,7 +7,7 @@
   --muted:#6b7280;
   --line:#e5e7eb;
 
-  /* Compact spacing scale (avoid overly wide gaps) */
+  /* Compact spacing scale */
   --s-1: 6px;
   --s-2: 10px;
   --s-3: 14px;
@@ -53,14 +53,12 @@ button:focus-visible{
   margin: 0 auto;
 }
 
-/* Keep sections compact (Jin preference) */
 .section{
-  padding: var(--s-6) 0;      /* 34px */
+  padding: var(--s-6) 0;
   border-top: 1px solid var(--line);
 }
 .section:first-of-type{border-top:none}
 
-/* Optional: section title wrapper */
 .section-head{
   display:flex;
   flex-direction:column;
@@ -73,11 +71,11 @@ button:focus-visible{
   max-width: 86ch;
 }
 
-/* ===== Header (네이비 + 흰색 로고/텍스트 유지) ===== */
+/* ===== Header (네이비 + 흰색 유지) ===== */
 header{
   background: var(--navy);
   color:#fff;
-  padding: 20px 0; /* 유지: 조금 두껍게 */
+  padding: 20px 0;
 }
 header .container{
   display:flex;
@@ -89,6 +87,23 @@ header h1{
   font-size: 20px;
   letter-spacing:.2px;
 }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+.brand .logo{
+  width:28px; height:28px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.35);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:12px;
+}
+.brand span{font-weight:700}
 
 /* nav */
 nav{
@@ -105,20 +120,15 @@ nav a{
   border:1px solid rgba(255,255,255,.18);
   transition: background .15s ease, border-color .15s ease, opacity .15s ease;
 }
-nav a:hover{
-  background: rgba(255,255,255,.08);
-}
+nav a:hover{background: rgba(255,255,255,.08);}
 
-/* Header CTA button (outline style, keeps navy/white combo) */
 .nav-cta{
   border:1px solid rgba(255,255,255,.55) !important;
   font-weight: 600;
 }
-.nav-cta:hover{
-  background: rgba(255,255,255,.12) !important;
-}
+.nav-cta:hover{background: rgba(255,255,255,.12) !important;}
 
-/* ===== Buttons (for Hero / Contact CTA) ===== */
+/* ===== Buttons ===== */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -150,14 +160,6 @@ nav a:hover{
 }
 .btn.outline:hover{background: rgba(11,31,58,.04);}
 
-.btn.light{
-  background: rgba(255,255,255,.12);
-  color:#fff;
-  border-color: rgba(255,255,255,.35);
-}
-.btn.light:hover{background: rgba(255,255,255,.16);}
-
-/* Button group */
 .actions{
   display:flex;
   flex-wrap:wrap;
@@ -165,19 +167,17 @@ nav a:hover{
   margin-top: var(--s-2);
 }
 
-/* ===== Hero (이미지 포함 1개만 유지) ===== */
+/* ===== Hero ===== */
 .hero{
   background: var(--soft);
-  background-image: url("world-map.svg"); /* 파일명이 다르면 여기만 수정 */
+  background-image: url("world-map.svg");
   background-repeat: no-repeat;
   background-position: right 12% center;
   background-size: 62%;
-  padding: 40px 0 30px; /* 유지: 과하게 키우지 않음 */
-  text-align:left;
+  padding: 40px 0 30px;
   position: relative;
 }
 
-/* 지도 너무 진하면 아래 오버레이(기본 ON) */
 .hero::after{
   content:"";
   position:absolute;
@@ -191,21 +191,16 @@ nav a:hover{
   flex-direction:column;
   gap:8px;
 }
-
 .hero h2{
-  color: #111827;   /* 거의 블랙에 가까운 딥그레이 */
+  color: #111827; /* 딥그레이: 모바일 가독성 */
   font-size: 26px;
   line-height: 1.25;
 }
-
 .hero p{
-  color: #4b5563;   /* 기존 muted보다 살짝 진하게 */
+  color: #4b5563;
   max-width: 78ch;
-  margin:0; /* Jin: 문단간 여백 넓지 않게 */
+  margin:0;
 }
-
-
-/* Optional hero highlight line */
 .hero .tagline{
   font-size: 12px;
   color: rgba(11,31,58,.75);
@@ -217,7 +212,6 @@ nav a:hover{
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
-
 .grid-3{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -230,36 +224,22 @@ nav a:hover{
   padding:14px;
   background:#fff;
 }
-
 .card h4{
   margin:0 0 6px;
   font-size:14px;
   color:var(--navy);
 }
-
 .card p{
   margin:0;
   color:var(--muted);
   font-size:13px;
 }
 
-/* A slightly tighter card variant (for stats) */
-.card.compact{
-  padding: 12px;
-}
-.stat{
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-}
-.stat b{
-  color: var(--navy);
-  font-size: 14px;
-}
-.stat span{
-  color: var(--muted);
-  font-size: 13px;
-}
+/* Stats */
+.card.compact{padding: 12px;}
+.stat{display:flex; flex-direction:column; gap:4px;}
+.stat b{color: var(--navy); font-size: 14px;}
+.stat span{color: var(--muted); font-size: 13px;}
 
 /* ===== Trust block (Why TN) ===== */
 .trust{
@@ -285,7 +265,7 @@ nav a:hover{
   font-size:13px;
 }
 
-/* ===== Process (new) ===== */
+/* ===== Process ===== */
 .process{
   display:grid;
   grid-template-columns: repeat(4, 1fr);
@@ -322,15 +302,43 @@ nav a:hover{
   font-size: 13px;
 }
 
-/* ===== Contact box ===== */
-.contact-box{
-  background: #fafafa;
+/* ===== Contact Tabs (공간 줄이고 촌스러움 제거) ===== */
+.tabs{
   border:1px solid var(--line);
   border-radius: var(--r-2);
-  padding:16px;
+  background:#fff;
+  overflow:hidden;
 }
-.contact-box p{margin:8px 0}
-.contact-box strong{color:var(--navy)}
+.tabs input{display:none;}
+
+.tabs .tab-labels{
+  display:flex;
+  border-bottom:1px solid var(--line);
+}
+.tabs label{
+  flex:0 0 auto;
+  padding:10px 14px;
+  font-size:13px;
+  font-weight:700;
+  color: rgba(11,31,58,.75);
+  cursor:pointer;
+  background:#fff;
+}
+.tabs label + label{border-left:1px solid var(--line);}
+
+.tab-panels{padding:14px;}
+.tab-panel{display:none;}
+
+#tab-contact:checked ~ .tab-panels .tab-panel[data-panel="contact"]{display:block;}
+#tab-directions:checked ~ .tab-panels .tab-panel[data-panel="directions"]{display:block;}
+
+#tab-contact:checked ~ .tab-labels label[for="tab-contact"],
+#tab-directions:checked ~ .tab-labels label[for="tab-directions"]{
+  color: var(--navy);
+  background: rgba(11,31,58,.04);
+}
+
+/* Contact actions */
 .contact-actions{
   display:flex;
   flex-wrap:wrap;
@@ -338,7 +346,7 @@ nav a:hover{
   margin-top: var(--s-2);
 }
 
-/* Optional: inline label rows */
+/* Key/Value rows */
 .kv{
   display:grid;
   grid-template-columns: 120px 1fr;
@@ -367,4 +375,5 @@ footer{
   .process{grid-template-columns:1fr}
   header .container{flex-direction:column; align-items:flex-start}
   .hero{background-position: center; background-size: 92%;}
+  .tabs .tab-labels{flex-wrap:wrap;}
 }
