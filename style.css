@@ -192,10 +192,11 @@ nav a:hover{
   gap:8px;
 }
 .hero h2{
-  color: var(--navy);
+  color: #1f2937;   /* 진한 그레이 (Tailwind gray-800 톤) */
   font-size: 26px;
   line-height: 1.25;
 }
+
 .hero p{
   color: var(--muted);
   max-width: 78ch;
