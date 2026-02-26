@@ -6,10 +6,23 @@
   --text:#1f2937;
   --muted:#6b7280;
   --line:#e5e7eb;
+
+  /* Compact spacing scale (avoid overly wide gaps) */
+  --s-1: 6px;
+  --s-2: 10px;
+  --s-3: 14px;
+  --s-4: 18px;
+  --s-5: 26px;
+  --s-6: 34px;
+
+  /* Radius */
+  --r-1: 10px;
+  --r-2: 12px;
 }
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
+
 body{
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
@@ -17,12 +30,21 @@ body{
   line-height: 1.55;
 }
 
+/* Links / text rhythm (compact) */
 a{color:inherit}
-p{margin:0 0 12px}
+p{margin:0 0 var(--s-2)}
 ul{margin:0; padding-left:18px}
-li{margin:6px 0}
-h1,h2,h3{margin:0}
-h3{font-size:18px; color:var(--navy); margin-bottom:10px}
+li{margin:var(--s-1) 0}
+h1,h2,h3,h4{margin:0}
+h3{font-size:18px; color:var(--navy); margin-bottom:var(--s-2)}
+h4{font-size:14px; color:var(--navy)}
+
+/* Better keyboard accessibility */
+a:focus-visible,
+button:focus-visible{
+  outline: 2px solid rgba(11,31,58,.35);
+  outline-offset: 2px;
+}
 
 /* ===== Layout ===== */
 .container{
@@ -31,17 +53,31 @@ h3{font-size:18px; color:var(--navy); margin-bottom:10px}
   margin: 0 auto;
 }
 
+/* Keep sections compact (Jin preference) */
 .section{
-  padding: 26px 0;
+  padding: var(--s-6) 0;      /* 34px */
   border-top: 1px solid var(--line);
 }
 .section:first-of-type{border-top:none}
 
-/* ===== Header (네이비 복구 핵심) ===== */
+/* Optional: section title wrapper */
+.section-head{
+  display:flex;
+  flex-direction:column;
+  gap: var(--s-1);
+  margin-bottom: var(--s-3);
+}
+.section-head p{
+  margin:0;
+  color: var(--muted);
+  max-width: 86ch;
+}
+
+/* ===== Header (네이비 + 흰색 로고/텍스트 유지) ===== */
 header{
   background: var(--navy);
   color:#fff;
-  padding: 20px 0;  /* 원래 느낌으로 조금 두껍게 */
+  padding: 20px 0; /* 유지: 조금 두껍게 */
 }
 header .container{
   display:flex;
@@ -67,9 +103,66 @@ nav a{
   padding:7px 10px;
   border-radius:8px;
   border:1px solid rgba(255,255,255,.18);
+  transition: background .15s ease, border-color .15s ease, opacity .15s ease;
 }
 nav a:hover{
   background: rgba(255,255,255,.08);
+}
+
+/* Header CTA button (outline style, keeps navy/white combo) */
+.nav-cta{
+  border:1px solid rgba(255,255,255,.55) !important;
+  font-weight: 600;
+}
+.nav-cta:hover{
+  background: rgba(255,255,255,.12) !important;
+}
+
+/* ===== Buttons (for Hero / Contact CTA) ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration:none;
+  font-size: 13px;
+  font-weight: 600;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition: transform .05s ease, background .15s ease, border-color .15s ease, opacity .15s ease;
+  user-select:none;
+}
+.btn:active{transform: translateY(1px);}
+
+.btn.primary{
+  background: var(--navy);
+  color:#fff;
+  border-color: var(--navy);
+}
+.btn.primary:hover{opacity:.95;}
+
+.btn.outline{
+  background: transparent;
+  color: var(--navy);
+  border-color: rgba(11,31,58,.25);
+}
+.btn.outline:hover{background: rgba(11,31,58,.04);}
+
+.btn.light{
+  background: rgba(255,255,255,.12);
+  color:#fff;
+  border-color: rgba(255,255,255,.35);
+}
+.btn.light:hover{background: rgba(255,255,255,.16);}
+
+/* Button group */
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: var(--s-2);
 }
 
 /* ===== Hero (이미지 포함 1개만 유지) ===== */
@@ -79,12 +172,12 @@ nav a:hover{
   background-repeat: no-repeat;
   background-position: right 12% center;
   background-size: 62%;
-  padding: 40px 0 30px;
+  padding: 40px 0 30px; /* 유지: 과하게 키우지 않음 */
   text-align:left;
   position: relative;
 }
 
-/* 지도 너무 진하면 아래 오버레이 켜기(기본은 켜둠) */
+/* 지도 너무 진하면 아래 오버레이(기본 ON) */
 .hero::after{
   content:"";
   position:absolute;
@@ -106,30 +199,63 @@ nav a:hover{
 .hero p{
   color: var(--muted);
   max-width: 78ch;
-  margin:0;
+  margin:0; /* Jin: 문단간 여백 넓지 않게 */
+}
+
+/* Optional hero highlight line */
+.hero .tagline{
+  font-size: 12px;
+  color: rgba(11,31,58,.75);
 }
 
 /* ===== Cards / Grids ===== */
+.grid-2{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
 .grid-3{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
+
 .card{
   border:1px solid var(--line);
-  border-radius:12px;
+  border-radius: var(--r-2);
   padding:14px;
   background:#fff;
 }
+
 .card h4{
   margin:0 0 6px;
   font-size:14px;
   color:var(--navy);
 }
+
 .card p{
   margin:0;
   color:var(--muted);
   font-size:13px;
+}
+
+/* A slightly tighter card variant (for stats) */
+.card.compact{
+  padding: 12px;
+}
+.stat{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.stat b{
+  color: var(--navy);
+  font-size: 14px;
+}
+.stat span{
+  color: var(--muted);
+  font-size: 13px;
 }
 
 /* ===== Trust block (Why TN) ===== */
@@ -137,11 +263,11 @@ nav a:hover{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-top: 10px;
+  margin-top: var(--s-2);
 }
 .trust .pill{
   border:1px solid var(--line);
-  border-radius:12px;
+  border-radius: var(--r-2);
   padding:12px;
   background: #fff;
 }
@@ -156,15 +282,69 @@ nav a:hover{
   font-size:13px;
 }
 
+/* ===== Process (new) ===== */
+.process{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: var(--s-2);
+}
+.step{
+  border:1px solid var(--line);
+  border-radius: var(--r-2);
+  padding:12px;
+  background:#fff;
+}
+.step .num{
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(11,31,58,.06);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.step b{
+  display:block;
+  color: var(--navy);
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.step span{
+  color: var(--muted);
+  font-size: 13px;
+}
+
 /* ===== Contact box ===== */
 .contact-box{
   background: #fafafa;
   border:1px solid var(--line);
-  border-radius:12px;
+  border-radius: var(--r-2);
   padding:16px;
 }
 .contact-box p{margin:8px 0}
 .contact-box strong{color:var(--navy)}
+.contact-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: var(--s-2);
+}
+
+/* Optional: inline label rows */
+.kv{
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px 12px;
+  margin-top: var(--s-2);
+  font-size: 13px;
+}
+.kv .k{color: var(--muted);}
+.kv .v{color: var(--text);}
 
 /* ===== Footer ===== */
 footer{
@@ -178,8 +358,10 @@ footer{
 
 /* ===== Mobile ===== */
 @media (max-width: 860px){
+  .grid-2{grid-template-columns:1fr}
   .grid-3{grid-template-columns:1fr}
   .trust{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr}
   header .container{flex-direction:column; align-items:flex-start}
   .hero{background-position: center; background-size: 92%;}
 }
