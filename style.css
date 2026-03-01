@@ -84,41 +84,53 @@ header .container{
   gap:14px;
 }
 
-/* ===== Brand (modern, larger, consistent with UI) ===== */
+/* ===== Brand (refined modern version) ===== */
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
   text-decoration:none;
   color:#fff;
 }
 
-/* 작은 TN 마크(예전 로고 박스 느낌 유지) */
+/* TN 박스 */
 .brand-mark{
-  width:34px;
-  height:34px;
-  border-radius:10px;
+  width:36px;
+  height:36px;
+  border-radius:12px;
   border:1px solid rgba(255,255,255,.35);
-  display:inline-flex;
+  display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:800;
-  font-size:13px;
-  letter-spacing: 0.2px;
+
+  font-weight:900;
+  font-size:14px;
+  letter-spacing:0.4px;
 }
 
-/* 회사명: 크기만 업(과하지 않게) */
+/* 회사명 */
 .brand-name{
+  font-size:23px;           /* 🔥 기존보다 크지만 과하지 않음 */
   font-weight:800;
-  font-size:22px;     /* ✅ 기존보다 확실히 큼 */
-  letter-spacing:-0.2px;
+  letter-spacing:-0.3px;    /* 살짝 압축 → 고급 느낌 */
   line-height:1;
 }
 
-/* Mobile */
+/* 살짝 고급 효과 (호버 시 은은한 강조) */
+.brand:hover .brand-name{
+  opacity:.9;
+}
+
+/* 모바일 */
 @media (max-width: 860px){
-  .brand-mark{ width:32px; height:32px; border-radius:10px; }
-  .brand-name{ font-size:20px; }
+  .brand-mark{
+    width:32px;
+    height:32px;
+    font-size:13px;
+  }
+  .brand-name{
+    font-size:20px;
+  }
 }
 
 /* nav */
