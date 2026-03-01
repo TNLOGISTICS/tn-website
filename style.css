@@ -71,7 +71,7 @@ button:focus-visible{
   max-width: 86ch;
 }
 
-/* ===== Header (네이비 + 흰색 유지) ===== */
+/* ===== Header (navy) ===== */
 header{
   background: var(--navy);
   color:#fff;
@@ -170,17 +170,19 @@ nav a:hover{background: rgba(255,255,255,.08);}
 }
 
 /* ===== Hero ===== */
+/* Uses: /images/hero.png in your repo */
 .hero{
-  background: var(--soft);
-  background-image: url("world-map.svg");
+  background-color: var(--soft);
+  background-image: url("images/hero.png");
   background-repeat: no-repeat;
-  background-position: right 12% center;
-  background-size: 62%;
+  background-position: center;
+  background-size: cover;
+
   padding: 40px 0 30px;
   position: relative;
 }
 
-/* background overlay */
+/* light overlay for readability on desktop */
 .hero::after{
   content:"";
   position:absolute;
@@ -193,7 +195,7 @@ nav a:hover{background: rgba(255,255,255,.08);}
   z-index: 1;
 }
 
-/* NEW: text block wrapper (for readability) */
+/* text block wrapper */
 .hero-content{
   display:flex;
   flex-direction:column;
@@ -378,7 +380,7 @@ footer{
   margin-top: 16px;
 }
 
-/* ===== Mobile (readability fix) ===== */
+/* ===== Mobile ===== */
 @media (max-width: 860px){
 
   /* Header: keep nav in one line with horizontal scroll */
@@ -402,8 +404,7 @@ footer{
 
   /* Hero: stronger overlay + text panel */
   .hero{
-    background-position: center bottom;
-    background-size: 120%;
+    background-position: center;
     padding: 26px 0 22px;
   }
   .hero::after{
@@ -445,4 +446,14 @@ footer{
   .process{grid-template-columns:1fr}
 
   .tabs .tab-labels{flex-wrap:wrap;}
+}
+
+/* ✅ 핵심: 모바일 "세로"에서는 사진 전체가 최대한 보이게 (contain) */
+@media (max-width: 900px) and (orientation: portrait){
+  .hero{
+    background-size: contain;     /* 전체 보이게 */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--navy); /* 여백은 네이비로 */
+  }
 }
