@@ -516,7 +516,7 @@ footer{
 /* Image area */
 .hero-img{
   width: 100%;
-  height: 65vh;        /* PC에서 처음처럼 크게 */
+  height: 60vh;        /* PC에서 처음처럼 크게 */
   min-height: 520px;
   max-height: 760px;   /* 너무 과하게 커지는 것 방지 */
 
