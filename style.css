@@ -517,10 +517,12 @@ footer{
 /* Image area */
 .hero-img{
   width: 100%;
-  height: clamp(320px, 52vh, 520px);
-  display: block;
+  height: 65vh;        /* PC에서 처음처럼 크게 */
+  min-height: 520px;
+  max-height: 760px;   /* 너무 과하게 커지는 것 방지 */
 
-  object-fit: cover;        /* 기본은 cover로 안정 */
+  display: block;
+  object-fit: cover;
   object-position: center;
   background: var(--navy);
 }
