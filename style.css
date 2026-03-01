@@ -84,42 +84,41 @@ header .container{
   gap:14px;
 }
 
-/* ===== Brand (slightly enlarged, clean) ===== */
+/* ===== Brand (modern, larger, consistent with UI) ===== */
 .brand{
   display:flex;
   align-items:center;
+  gap:10px;
   text-decoration:none;
   color:#fff;
 }
 
-/* 전체 크기 약 1.5배 */
-.brand-text{
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 26px;      /* 🔥 기존 16px → 26px */
-  font-weight: 800;
-  letter-spacing: 0.2px;
-  line-height: 1;
+/* 작은 TN 마크(예전 로고 박스 느낌 유지) */
+.brand-mark{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.35);
   display:inline-flex;
-  align-items: baseline;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing: 0.2px;
 }
 
-/* TN 강조 */
-.brand-tn{
-  font-weight: 900;
+/* 회사명: 크기만 업(과하지 않게) */
+.brand-name{
+  font-weight:800;
+  font-size:22px;     /* ✅ 기존보다 확실히 큼 */
+  letter-spacing:-0.2px;
+  line-height:1;
 }
 
-/* Logistics만 italic */
-.brand-logistics{
-  font-style: italic;
-  font-weight: 700;
-  margin-left: 3px;
-}
-
-/* 모바일 */
+/* Mobile */
 @media (max-width: 860px){
-  .brand-text{
-    font-size: 22px;
-  }
+  .brand-mark{ width:32px; height:32px; border-radius:10px; }
+  .brand-name{ font-size:20px; }
 }
 
 /* nav */
