@@ -180,7 +180,7 @@ nav a:hover{background: rgba(255,255,255,.08);}
 
   /* 👇 이게 핵심 */
   min-height: 520px;
-  height: 62vh;
+  height: 60vh;
 
   display: flex;
   align-items: center;
@@ -196,7 +196,7 @@ nav a:hover{background: rgba(255,255,255,.08);}
   background-position: center;
   background-size: cover;
 
-  height: 65vh;
+  height: 60vh;
   min-height: 520px;
 }
 
