@@ -173,10 +173,17 @@ nav a:hover{background: rgba(255,255,255,.08);}
 /* Uses: /images/hero.png in your repo */
 .hero{
   background-color: var(--soft);
-  background-image: url("images/hero.png");
+  background-image: url("./images/hero.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  /* 👇 이게 핵심 */
+  min-height: 520px;
+  height: 62vh;
+
+  display: flex;
+  align-items: center;
 
   padding: 40px 0 30px;
   position: relative;
@@ -451,9 +458,12 @@ footer{
 /* ✅ 핵심: 모바일 "세로"에서는 사진 전체가 최대한 보이게 (contain) */
 @media (max-width: 900px) and (orientation: portrait){
   .hero{
-    background-size: contain;     /* 전체 보이게 */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: var(--navy); /* 여백은 네이비로 */
+    background-color: var(--navy);
+
+    height: 54vh;
+    min-height: 420px;
   }
 }
