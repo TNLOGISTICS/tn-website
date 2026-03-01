@@ -84,25 +84,43 @@ header .container{
   gap:14px;
 }
 
-/* Brand */
+/* ===== Brand (slightly enlarged, clean) ===== */
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
   text-decoration:none;
   color:#fff;
 }
-.brand .logo{
-  width:28px; height:28px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,.35);
+
+/* 전체 크기 약 1.5배 */
+.brand-text{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;      /* 🔥 기존 16px → 26px */
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  line-height: 1;
   display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  font-size:12px;
+  align-items: baseline;
 }
-.brand span{font-weight:700}
+
+/* TN 강조 */
+.brand-tn{
+  font-weight: 900;
+}
+
+/* Logistics만 italic */
+.brand-logistics{
+  font-style: italic;
+  font-weight: 700;
+  margin-left: 3px;
+}
+
+/* 모바일 */
+@media (max-width: 860px){
+  .brand-text{
+    font-size: 22px;
+  }
+}
 
 /* nav */
 nav{
