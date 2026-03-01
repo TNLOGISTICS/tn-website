@@ -496,6 +496,7 @@ footer{
   position: relative;
   overflow: hidden;
   background: var(--navy);
+  min-height: clamp(320px, 52vh, 520px);
 }
 
 .hero-stage{ position: relative; }
@@ -583,16 +584,15 @@ footer{
 @media (max-width: 900px) and (orientation: portrait){
   .hero-img{
     height: clamp(300px, 46vh, 420px);
-    object-fit: contain;     /* 세로에서만 전체 노출 */
+    object-fit: contain;
     background: var(--navy);
   }
-}
 
   .hero-nav{
-    top: calc((52vh) / 2);
+    top: calc((46vh) / 2);
   }
 
   .hero-dots{
-    bottom: calc(26px + 22px + 6px);
+    bottom: 16px;
   }
 }
