@@ -595,18 +595,15 @@ footer{
 /* Mobile portrait: show whole image (contain) */
 @media (max-width: 900px) and (orientation: portrait){
   .hero-img{
-    height: clamp(300px, 46vh, 420px);
-    object-fit: contain;        /* ✅ 세로에서 전체 보이게 */
+    height: 34vh;              /* ✅ 세로 길이 줄임 */
+    min-height: 240px;
+    max-height: 360px;
+
+    object-fit: cover;         /* ✅ 여백 제거 */
+    object-position: center;
     background: var(--navy);
   }
 
-  /* 모바일에서는 화살표 숨기는 게 안정적 */
-  .hero-nav{
-    display: none;
-  }
-
-  /* dots는 static이라 bottom 필요 없음 → 간격만 조정 */
-  .hero-dots{
-    padding: 12px 0 14px;       /* ✅ 모바일에서 보이게/깔끔하게 */
-  }
+  .hero-nav{ display:none; }
+  .hero-dots{ padding: 12px 0 14px; }
 }
