@@ -494,7 +494,7 @@ footer{
 
 .hero-stage{
   position: relative;
-  overflow: hidden;
+  display: grid;
   background: var(--navy);
   min-height: clamp(320px, 52vh, 520px);
 }
@@ -502,8 +502,7 @@ footer{
 .hero-stage{ position: relative; }
 
 .hero-slide{
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;       /* ✅ 같은 칸에 겹치기 */
   opacity: 0;
   pointer-events: none;
   transition: opacity .35s ease;
@@ -561,40 +560,53 @@ footer{
 .hero-nav.next{ right: 14px; }
 .hero-nav:hover{ background: rgba(11,31,58,.55); }
 
-/* Dots */
+/* ===== Hero Dots (stable layout version) ===== */
 .hero-dots{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: calc(26px + 22px + 10px); /* caption 위쪽에 살짝 */
+  position: static;                 /* absolute 제거 */
   display: flex;
-  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  padding: 16px 0 18px;
+  background: var(--navy);
 }
+
 .hero-dot{
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.65);
-  background: rgba(255,255,255,.25);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.6);
+  background: rgba(255,255,255,.3);
+
   cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
 }
+
+.hero-dot:hover{
+  transform: scale(1.2);
+}
+
 .hero-dot.is-active{
-  background: rgba(255,255,255,.9);
+  background: #ffffff;
 }
 
 /* Mobile portrait: show whole image (contain) */
 @media (max-width: 900px) and (orientation: portrait){
   .hero-img{
     height: clamp(300px, 46vh, 420px);
-    object-fit: contain;
+    object-fit: contain;        /* ✅ 세로에서 전체 보이게 */
     background: var(--navy);
   }
 
+  /* 모바일에서는 화살표 숨기는 게 안정적 */
   .hero-nav{
-    top: calc((46vh) / 2);
+    display: none;
   }
 
+  /* dots는 static이라 bottom 필요 없음 → 간격만 조정 */
   .hero-dots{
-    bottom: 16px;
+    padding: 12px 0 14px;       /* ✅ 모바일에서 보이게/깔끔하게 */
   }
 }
