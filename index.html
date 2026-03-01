@@ -284,15 +284,17 @@
     const dotsWrap = document.querySelector('.hero-dots');
     const prevBtn = document.querySelector('.hero-nav.prev');
     const nextBtn = document.querySelector('.hero-nav.next');
-    if (!slides.length) return;
+    if (!slides.length || !dotsWrap) return;
 
     let i = 0;
+    let timer = null;
+
     const dots = slides.map((_, idx) => {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'hero-dot' + (idx === 0 ? ' is-active' : '');
       b.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
-      b.addEventListener('click', () => go(idx));
+      b.addEventListener('click', () => { go(idx); reset(); });
       dotsWrap.appendChild(b);
       return b;
     });
@@ -308,13 +310,20 @@
     function next(){ go(i + 1); }
     function prev(){ go(i - 1); }
 
-    nextBtn.addEventListener('click', next);
-    prevBtn.addEventListener('click', prev);
+    function reset(){
+      if (timer) clearInterval(timer);
+      timer = setInterval(next, 6000);
+    }
 
-    setInterval(next, 6000); // 6초마다 자동 전환
+    if (nextBtn) nextBtn.addEventListener('click', () => { next(); reset(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { prev(); reset(); });
+
+    render();
+    reset();
   })();
 </script>
 </body>
 </html>
+
 
 
